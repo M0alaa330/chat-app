@@ -1,5 +1,8 @@
 import 'package:chatapp/screens/homescreen.dart';
+import 'package:chatapp/screens/onboarding.dart';
+import 'package:chatapp/theme/color/mode.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,12 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     
-     
-      home: Homescreen()
+    return ScreenUtilInit(
+      designSize: const Size(375, 812),
+      builder: (context, child) {
+        return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: lightmode,
+            home: Onboarding());
+      },
     );
   }
 }
-
-
